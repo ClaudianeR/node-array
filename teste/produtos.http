@@ -3,20 +3,48 @@ GET http://localhost:5005/produtos
 
 ###
 
-//criar um produto
-
+// Criar um produto
 POST http://localhost:5005/produto
 Content-Type: application/json
 
 {
-   "id": 234,
-   "nome": "Produto 2",
-   "preco": 350,
-   "off": 17
+    "id": 123,
+    "nome": "Produto 1",
+    "preco": 459.90,
+    "off": 15
+}
+
+###
+
+// Buscar produto por id
+GET http://localhost:5005/produto/123
+
+###
+
+//Atualizar 
+PUT http://localhost:5005/produtos/123
+Content-Type: application/json
+
+{
+    "nome": "Produto ATUALIZAR",
+    "preco": 500.90,
+    "off": 30
 
 }
 
 ###
-// Buscar produto por id
-GET  http://localhost:5005/produto/
+
+//Atualizar Parcial
+
+PATCH http://localhost:5005/produtos/123
 Content-Type: application/json
+
+{
+    "nome": "Produto ATUALIZADO"
+    
+}
+
+###
+// Deletar todos os produtos
+
+DELETE 

@@ -8,18 +8,22 @@ const fastify = Fastify({
 const PORT = 5005
 
 fastify.get('/', (request, reply) => {
-    reply.send('Servidor Rodando - Angelo!')
+    reply.send('Servidor Rodando - !!!!')
 })
 
 fastify.get('/produtos', produtoService.buscarProdutos)
 
-fastify.get('/produtos/:id', produtoService.buscarPorId)
+fastify.get('/produtos/:id', produtoService.buscarProdutoPorId)
 
 fastify.post('/produto', produtoService.criarProduto)
 
-fastify.patch('/produtos/id', produtoService.atualizarProduto)
+fastify.put('/produtos/:id', produtoService.atualizarProduto)
 
-fastify.delete('/produtos/id', produtoService.deletarProduto)
+fastify.patch('/produtos/:id', produtoService.atualizarProdutoParcial)
+
+fastify.delete('/produtos/', produtoService.deletarTodosProduto)
+
+fastify.delete('/produto/id', produtoService.deletarProduto)
 
 
 fastify.listen({ port: PORT}, (err, address) => {
